@@ -1,0 +1,141 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{moreverb}
+\usepackage{fancyvrb}
+\usepackage{minted}
+\usepackage{algpseudocode}
+\usepackage{natbib}
+\usepackage{eulervm}
+\usepackage{auto-pst-pdf}
+\usepackage{pst-plot}
+\usepackage{multirow}
+
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\usetheme{boxes}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}[square]
+
+\title{{\bf Scikit-Learn in particle physics}}
+\author{Gilles Louppe}
+\institute{CERN, Switzerland}
+\date{November 18, 2014}
+
+\newcommand{\todo}[1]{\textcolor{red}{[TODO] #1}}
+
+\definecolor{lightgreen}{rgb}{0.0,0.8,0.0}
+\definecolor{lightblue}{rgb}{0.3,0.8,1.0}
+\definecolor{lightred}{rgb}{0.874,0.180,0.105}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\newrgbcolor{mygreen}{.00 .5 .00}
+\newrgbcolor{myyellow}{.6 .6 .00}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+
+\newrgbcolor{mygreen}{.00 .5 .00}
+\newcommand{\X}[1]{\textcolor{blue}{#1}}
+\newcommand{\y}[1]{\textcolor{red}{#1}}
+\newcommand{\model}[1]{\textcolor{mygreen}{#1}}
+\newcommand{\loss}[1]{\textcolor{lightblue}{#1}}
+
+\begin{document}
+
+\renewcommand{\inserttotalframenumber}{XX}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{High Energy Physics (HEP)}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Track finding}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Budgeted classification}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Signal / background segmentation}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Data analysis ecosystem in HEP}
+% tMVA + ROOT, often considered as a black box
+% simple statistical methods
+% lack of adoption because understandable or because it works
+% overall, the whole statistical and data ecosystem has been developed in vase clos
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{The Higgs Boson Kaggle Challenge}
+% description
+% unique measure
+% sample weights
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Winning methods}
+
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Lessons learned}
+% enthousiasm towards unknown ML techniaues
+% http://www.kaggle.com/c/higgs-boson/forums/t/10350/how-physicists-fared
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{What about Scikit-Learn?}
+% sample weights
+% no root format
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Conclusions}
+% a lot of things to do, but things are changing! (slowly)
+% mutual education and understanding
+% go beyong good performance => use models to understqnd whats going on
+% call for collaboration between data science and HEP, equal to equal
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\appendix
+
+\begin{frame}
+\begin{center}
+{\Huge  Questions?}
+\end{center}
+\end{frame}
+
+\end{document}
