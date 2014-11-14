@@ -6,12 +6,9 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{hyperref}
-\usepackage{verbatim}
 \usepackage{url}
 \usepackage{moreverb}
 \usepackage{fancyvrb}
-\usepackage{minted}
-\usepackage{algpseudocode}
 \usepackage{natbib}
 \usepackage{eulervm}
 \usepackage{auto-pst-pdf}
@@ -51,6 +48,7 @@
 \newcommand{\y}[1]{\textcolor{red}{#1}}
 \newcommand{\model}[1]{\textcolor{mygreen}{#1}}
 \newcommand{\loss}[1]{\textcolor{lightblue}{#1}}
+\setbeamertemplate{enumerate items}[circle]
 
 \begin{document}
 
@@ -64,55 +62,103 @@
 
 % -----------------------------------------------------------------------------
 
+{
+\usebackgroundtemplate{\includegraphics[height=\paperheight]{./figures/lhc.jpg}}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{normal text}{fg=white}
+
 \begin{frame}{High Energy Physics (HEP)}
+
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+    \onslide<3->{
+    \begin{figure}
+    \includegraphics[width=0.8\textwidth]{./figures/atlas.jpg}
+    \end{figure}
+    \begin{figure}
+    \includegraphics[width=0.8\textwidth]{./figures/cms.jpg}
+    \end{figure}}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \onslide<2->{
+        \begin{center}
+        \color{white} \Large \it  Study the nature of the constituents of matter
+        \end{center}
+    }
+    \onslide<3->{
+    \begin{figure}
+    \includegraphics[width=0.8\textwidth]{./figures/tunnel.jpg}
+    \end{figure}}
+    \end{column}
+\end{columns}
+\end{frame}
+}
+
+
+% -----------------------------------------------------------------------------
+
+{
+%\usebackgroundtemplate{\includegraphics[height=\paperheight]{./figures/collision.jpg}}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{background canvas}{bg=black}
+
+\begin{frame}{Particle detector 101}
+    \only<1>{
+        \includegraphics[width=\textwidth]{./figures/collision.jpg}
+    }
+    \only<2>{
+        \includegraphics[width=\textwidth]{./figures/detector.jpg}
+    }
+\end{frame}
+}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Data analysis tasks in detectors}
+\begin{enumerate}
+
+\item Track finding\\
+    {\scriptsize Reconstruction of particle trajectories from hits in detectors}
+
+    \vspace{0.5cm}
+
+\item Budgeted classification\\
+    {\scriptsize Real-time classification of events in triggers}
+
+    \vspace{0.5cm}
+
+\item Classification of signal / background events\\
+    {\scriptsize Offline statistical analysis for discovery of new particles}
+
+    \vspace{0.5cm}
+
+\item ...
+
+\end{enumerate}
 \end{frame}
 
 % -----------------------------------------------------------------------------
 
-\begin{frame}{Track finding}
-\end{frame}
-
-% -----------------------------------------------------------------------------
-
-\begin{frame}{Budgeted classification}
-\end{frame}
-
-% -----------------------------------------------------------------------------
-
-\begin{frame}{Signal / background segmentation}
-\end{frame}
-
-% -----------------------------------------------------------------------------
-
-\begin{frame}{Data analysis ecosystem in HEP}
-% tMVA + ROOT, often considered as a black box
-% simple statistical methods
-% lack of adoption because understandable or because it works
-% overall, the whole statistical and data ecosystem has been developed in vase clos
-\end{frame}
-
-% -----------------------------------------------------------------------------
-
-\begin{frame}{The Higgs Boson Kaggle Challenge}
+\begin{frame}{The Higgs Boson challenge}
 % description
 % unique measure
 % sample weights
 \end{frame}
 
-% -----------------------------------------------------------------------------
-
 \begin{frame}{Winning methods}
 
 \end{frame}
 
-% -----------------------------------------------------------------------------
-
 \begin{frame}{Lessons learned}
 % enthousiasm towards unknown ML techniaues
 % http://www.kaggle.com/c/higgs-boson/forums/t/10350/how-physicists-fared
-\end{frame}
 
-% -----------------------------------------------------------------------------
+% tMVA + ROOT, often considered as a black box
+% simple statistical methods
+% lack of adoption because understandable or because it works
+% overall, the whole statistical and data ecosystem has been developed in vase clos
+\end{frame}
 
 \begin{frame}{What about Scikit-Learn?}
 % sample weights
