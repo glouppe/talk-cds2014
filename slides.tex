@@ -46,13 +46,13 @@
 \newrgbcolor{mygreen}{.00 .5 .00}
 \newcommand{\X}[1]{\textcolor{blue}{#1}}
 \newcommand{\y}[1]{\textcolor{red}{#1}}
-\newcommand{\model}[1]{\textcolor{mygreen}{#1}}
+\newcommand{\model}[1]{\textcolor{orange}{#1}}
 \newcommand{\loss}[1]{\textcolor{lightblue}{#1}}
+\newcommand{\w}[1]{\textcolor{mygreen}{#1}}
 \setbeamertemplate{enumerate items}[circle]
 
 \begin{document}
 
-\renewcommand{\inserttotalframenumber}{XX}
 
 % -----------------------------------------------------------------------------
 
@@ -94,11 +94,9 @@
 \end{frame}
 }
 
-
 % -----------------------------------------------------------------------------
 
 {
-%\usebackgroundtemplate{\includegraphics[height=\paperheight]{./figures/collision.jpg}}
 \setbeamercolor{frametitle}{fg=white}
 \setbeamercolor{normal text}{fg=white}
 \setbeamercolor{background canvas}{bg=black}
@@ -140,10 +138,50 @@
 
 % -----------------------------------------------------------------------------
 
-\begin{frame}{The Higgs Boson challenge}
+\begin{frame}{The Higgs Boson challenge (in HEP terms)}
+
+\begin{itemize}
+\item Data comes as a finite set $${\cal D} = \{(\X{\mathbf{x}_i}, \y{y_i}, \w{w_i}) | i = 0, \dots, N-1 \},$$
+where \X{$\mathbf{x}_i \in \mathbb{R}^d$}, \y{$y_i \in \{\text{signal}, \text{background}\}$} and \w{$w_i \in \mathbb{R}^+$}.
+
+\vspace{0.5cm}
+
+\item The goal is to find a region ${\cal G} = \{ \X{\mathbf{x}} | \model{g}(\X{\mathbf{x}}) = \y{\text{signal}}\} \subset \mathbb{R}^d$, defined from a binary function \model{$g$}, for which
+the background-only hypothesis can be rejected at a strong significance level ($p=2.87\times 10^{-7}$, i.e., \textit{5 sigma}).
+
+\vspace{0.5cm}
+
+\item Empirically, this is approximately equivalent to finding \model{$g$} from ${\cal D}$ so as to maximize $\approx \frac{s}{\sqrt{b}}$, where
+\begin{itemize}
+    \item $s = \sum_{\{i | \y{y_i = \text{signal}}, \model{g}(\X{\mathbf{x_i}}) = \y{\text{signal}}\}} \w{w_i}$
+    \item $b = \sum_{\{i | \y{y_i = \text{background}}, \model{g}(\X{\mathbf{x_i}}) = \y{\text{signal}}\}} \w{w_i}$
+\end{itemize}
+
+\end{itemize}
+
+
 % description
 % unique measure
 % sample weights
+\end{frame}
+
+\begin{frame}{The Higgs Boson challenge (in machine learning terms)}
+
+Find a binary classifier
+
+$$\model{g} : \X{\mathbb{R}^d} \mapsto \y{\{\text{signal}, \text{background}\}}$$
+
+\vspace{0.25cm}
+
+maximizing the objective function
+
+$$\approx \frac{s}{\sqrt{b}},$$
+
+where
+    \begin{itemize}
+        \item $s$ is the \w{weighted} number of true positives
+        \item $b$ is the \w{weighted} number of false positives.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Winning methods}
@@ -179,6 +217,13 @@
 \appendix
 
 \begin{frame}
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{./figures/xkcd.png}
+\end{figure}
+
+\vspace{0.5cm}
+
 \begin{center}
 {\Huge  Questions?}
 \end{center}
