@@ -151,19 +151,16 @@ the background-only hypothesis can be rejected at a strong significance level ($
 
 \vspace{0.5cm}
 
-\item Empirically, this is approximately equivalent to finding \model{$g$} from ${\cal D}$ so as to maximize $\approx \frac{s}{\sqrt{b}}$, where
+\item Empirically, this is approximately equivalent to finding \model{$g$} from ${\cal D}$ so as to maximize $\text{AMS} \approx \frac{s}{\sqrt{b}}$, where
 \begin{itemize}
     \item $s = \sum_{\{i | \y{y_i = \text{signal}}, \model{g}(\X{\mathbf{x_i}}) = \y{\text{signal}}\}} \w{w_i}$
     \item $b = \sum_{\{i | \y{y_i = \text{background}}, \model{g}(\X{\mathbf{x_i}}) = \y{\text{signal}}\}} \w{w_i}$
 \end{itemize}
 
 \end{itemize}
-
-
-% description
-% unique measure
-% sample weights
 \end{frame}
+
+% -----------------------------------------------------------------------------
 
 \begin{frame}{The Higgs Boson challenge (in machine learning terms)}
 
@@ -175,7 +172,7 @@ $$\model{g} : \X{\mathbb{R}^d} \mapsto \y{\{\text{signal}, \text{background}\}}$
 
 maximizing the objective function
 
-$$\approx \frac{s}{\sqrt{b}},$$
+$$AMS \approx \frac{s}{\sqrt{b}},$$
 
 where
     \begin{itemize}
@@ -184,11 +181,80 @@ where
     \end{itemize}
 \end{frame}
 
+% -----------------------------------------------------------------------------
+
 \begin{frame}{Winning methods}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{./figures/lb.png}
+\end{figure}
+
+\begin{itemize}
+\item Ensembles of neural networks (1st and 3rd);
+\item Ensembles of regularized greedy forests (2nd);
+\item Boosting with regularization (XGBoost package).
+
+\vspace{0.25cm}
+
+\item Most contestants dit not optimize AMS directly;
+\item But chosed the prediction cut-off maximizing AMS in CV.
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Lessons learned (for machine learning)}
+
+\begin{itemize}
+\item AMS is {\color{red} highly unstable}, hence the need for
+    \begin{itemize}
+        \item Careful, rigorous and stable cross-validation to avoid overfitting.
+        \item Ensembles to reduce variance ;
+        \item Regularized base models.
+    \end{itemize}
+
+
+\begin{figure}
+\includegraphics[scale=0.3]{./figures/overfitting.png}
+\end{figure}
+
+\item Support of samples weights \w{$w_i$} in classification models
+      was key for this challenge.
+
+\vspace{0.5cm}
+
+\item Feature engineering hardly helped.
+
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Lessons learned}
+\begin{frame}{Lessons learned (for physicists)}
+
+\begin{itemize}
+\item Domain knowledge hardly helped.
+
+\vspace{0.25cm}
+
+\item Standard machine learning techniques, run on a single laptop, easily beat HEP benchmarks.
+
+\vspace{0.25cm}
+
+\item Physicists started to realize that {\color{blue} collaborations with machine learning experts
+    is likely to be beneficial}.
+
+    \begin{itemize}
+    {\scriptsize
+    \item \textit{I worked on the ATLAS experiment for over a decade [...] It is rather depressing to see how badly I scored. -- Andrew John Lowe} \\
+    \item \textit{The final results seem to reinforce the idea that the machine learning experience is vastly more important in a similar contest than the knowledge of particle physics. I think that many people underestimate the computers. -- Lubos Motl}
+    \item \textit{It is probably the reason why ML experts and physicists should work together for finding the Higgs. -- phunter}
+    }
+    \end{itemize}
+
+\end{itemize}
+
+
+
 % enthousiasm towards unknown ML techniaues
 % http://www.kaggle.com/c/higgs-boson/forums/t/10350/how-physicists-fared
 
@@ -198,18 +264,90 @@ where
 % overall, the whole statistical and data ecosystem has been developed in vase clos
 \end{frame}
 
-\begin{frame}{What about Scikit-Learn?}
-% sample weights
-% no root format
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Scientific software in HEP}
+
+\begin{itemize}
+    \item ROOT and TMVA are standard data analysis tools in HEP.
+
+    \vspace{0.25cm}
+
+    \item Surprisingly, this {\color{red} HEP software ecosystem proved to be rather limited
+          and easily outperformed}, in the context of the Kaggle challenge.
+
+    \vspace{0.25cm}
+
+    \item Yet, the adoption of external solutions (e.g., the scientific Python ecosystem) appears to be slow and difficult because of
+        \begin{itemize}
+            {\scriptsize
+            \item The effort of relearning new tools ;
+            \item Lack of understanding of non-HEP methods ;
+            \item Genuine ignorance.
+            }
+        \end{itemize}
+
+    \begin{figure}
+    \includegraphics[width=0.5\textwidth]{./figures/tim.png}
+    \end{figure}
+
+\end{itemize}
+
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}{Scikit-Learn in Particle Physics?}
+
+\begin{itemize}
+\item The major blocker for the larger adoption of Scikit-Learn in HEP remains the {\color{red} full support of sample weights} throughout
+      all essential modules.
+
+      \begin{itemize}
+        {\scriptsize
+        \item Since 0.16, weights are supported in all ensembles and in most metrics.
+        \item Next step is to add support in grid search. }
+      \end{itemize}
+
+      \vspace{0.5cm}
+
+\item In parallel, domain-specific packages are getting traction
+
+      \begin{itemize}
+        {\scriptsize
+        \item \texttt{ROOTpy}, for bridging the gap between ROOT data format and NumPy;
+        \item \texttt{lhcb\_trigger\_ml}, implementing ML algorithms for HEP, on top of scikit-learn.}
+      \end{itemize}
+
+\end{itemize}
+
 \end{frame}
 
 % -----------------------------------------------------------------------------
 
 \begin{frame}{Conclusions}
-% a lot of things to do, but things are changing! (slowly)
-% mutual education and understanding
-% go beyong good performance => use models to understqnd whats going on
-% call for collaboration between data science and HEP, equal to equal
+
+\begin{itemize}
+\item Despite being known for being conservative, (some) physicists start
+adopting the scientific Python ecosystem for exploratory data analysis.
+
+\vspace{0.5cm}
+
+\item Scikit-Learn has the potential to become an important tool in the field.
+
+\vspace{0.5cm}
+
+\item Overall, on both data analysis and software aspects, this calls
+  for a {\color{blue} larger collaboration between data sciences and HEP}.
+\end{itemize}
+
+\vspace{0.25cm}
+
+\begin{center}
+\it The process of attempting as a physicist to compete against ML experts
+has given us a new respect for a field that (through ignorance) none of us held in as high esteem as we do now.
+\end{center}
+
 \end{frame}
 
 % -----------------------------------------------------------------------------
