@@ -291,7 +291,7 @@ where
 \begin{frame}{Scikit-Learn in Particle Physics?}
 
 \begin{itemize}
-\item The major blocker for the larger adoption of Scikit-Learn in HEP remains the {\color{red} full support of sample weights} throughout
+\item The main technical blocker for the larger adoption of Scikit-Learn in HEP remains the {\color{red} full support of sample weights} throughout
       all essential modules.
 
       \begin{itemize}
@@ -300,7 +300,9 @@ where
         \item Next step is to add support in grid search. }
       \end{itemize}
 
-      \vspace{0.5cm}
+        \begin{figure}
+        \includegraphics[width=0.5\textwidth]{./figures/sw.png}
+        \end{figure}
 
 \item In parallel, domain-specific packages are getting traction
 
@@ -309,6 +311,8 @@ where
         \item \texttt{ROOTpy}, for bridging the gap between ROOT data format and NumPy;
         \item \texttt{lhcb\_trigger\_ml}, implementing ML algorithms for HEP (mostly Boosting variants), on top of scikit-learn.}
       \end{itemize}
+
+\item Major blocker : political reasons?
 
 \end{itemize}
 
@@ -322,7 +326,7 @@ where
 
 \vspace{0.5cm}
 
-\item Scikit-Learn has the potential to become an important tool in HEP.
+\item Scikit-Learn has the potential to become an important tool in HEP. But we are not there yet [WIP].
 
 \vspace{0.5cm}
 
