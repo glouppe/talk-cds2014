@@ -132,14 +132,12 @@
 
     \vspace{0.5cm}
 
-\item ...
-
 \end{enumerate}
 \end{frame}
 
 % -----------------------------------------------------------------------------
 
-\begin{frame}{The Higgs Boson challenge (in HEP terms)}
+\begin{frame}{The Kaggle Higgs Boson challenge (in HEP terms)}
 
 \begin{itemize}
 \item Data comes as a finite set $${\cal D} = \{(\X{\mathbf{x}_i}, \y{y_i}, \w{w_i}) | i = 0, \dots, N-1 \},$$
@@ -163,7 +161,7 @@ the background-only hypothesis can be rejected at a strong significance level ($
 
 % -----------------------------------------------------------------------------
 
-\begin{frame}{The Higgs Boson challenge (in machine learning terms)}
+\begin{frame}{The Kaggle Higgs Boson challenge (in ML terms)}
 
 Find a binary classifier
 
@@ -209,7 +207,7 @@ where
 \begin{itemize}
 \item AMS is {\color{red} highly unstable}, hence the need for
     \begin{itemize}
-        \item Careful, rigorous and stable cross-validation to avoid overfitting.
+        \item Rigorous and stable cross-validation to avoid overfitting.
         \item Ensembles to reduce variance ;
         \item Regularized base models.
     \end{itemize}
@@ -237,7 +235,7 @@ where
 
 \vspace{0.25cm}
 
-\item Standard machine learning techniques, run on a single laptop, easily beat HEP benchmarks.
+\item Standard machine learning techniques, run on a single laptop, beat benchmarks without much efforts.
 
 \vspace{0.25cm}
 
@@ -272,8 +270,10 @@ where
     \item Yet, the adoption of external solutions (e.g., the scientific Python stack) appears to be slow and difficult because of
         \begin{itemize}
             {\scriptsize
-            \item The effort of relearning new tools ;
+            \item No major added-value ;
+            \item The learning curve of new tools ;
             \item Lack of understanding of non-HEP methods ;
+            \item Isolation from the community ;
             \item Genuine ignorance.
             }
         \end{itemize}
