@@ -6,17 +6,11 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{hyperref}
-\usepackage{url}
-\usepackage{moreverb}
-\usepackage{fancyvrb}
-\usepackage{natbib}
-\usepackage{eulervm}
 \usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
-\usepackage{multirow}
 
 
-\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+
+%\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
 \usetheme{boxes}
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{sections/subsections in toc}[circle]
@@ -260,27 +254,11 @@ where
 \begin{itemize}
     \item ROOT and TMVA are standard data analysis tools in HEP.
 
-    \vspace{0.25cm}
+    \vspace{0.5cm}
 
     \item Surprisingly, this {\color{red} HEP software ecosystem proved to be rather limited
           and easily outperformed} (at least in the context of the Kaggle challenge).
 
-    \vspace{0.25cm}
-
-    \item Yet, the adoption of external solutions (e.g., the scientific Python stack) appears to be slow and difficult because of
-        \begin{itemize}
-            {\scriptsize
-            \item No major added-value ;
-            \item The learning curve of new tools ;
-            \item Lack of understanding of non-HEP methods ;
-            \item Isolation from the community ;
-            \item Genuine ignorance.
-            }
-        \end{itemize}
-
-    \begin{figure}
-    \includegraphics[width=0.5\textwidth]{./figures/tim.png}
-    \end{figure}
 
 \end{itemize}
 
@@ -312,9 +290,27 @@ where
         \item \texttt{lhcb\_trigger\_ml}, implementing ML algorithms for HEP (mostly Boosting variants), on top of scikit-learn.}
       \end{itemize}
 
-\item Major blocker : political reasons?
-
 \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Major blocker: social reasons?}
+
+
+The adoption of external solutions (e.g., the scientific Python stack or Scikit-Learn) appears to be slow and difficult in the HEP community because of
+
+    \begin{itemize}
+        \item No ground-breaking added-value ;
+        \item The learning curve of new tools ;
+        \item Lack of understanding of non-HEP methods ;
+        \item Isolation from the community ;
+        \item Genuine ignorance.
+    \end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{./figures/tim.png}
+\end{figure}
+
 
 \end{frame}
 
